@@ -1,7 +1,15 @@
 package com.application.courselibrary.entity;
 
 import jakarta.persistence.*;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 
+import java.util.HashSet;
+import java.util.Set;
+@Getter
+@Setter
+@NoArgsConstructor
 @Entity
 @Table(name = "authors")
 public class Author {
@@ -13,5 +21,6 @@ public class Author {
     private String name;
     @Column(name = "description", length = 250, nullable = false)
     private String description;
-
+    @ManyToMany(mappedBy = "authors", cascade = CascadeType.ALL)
+    private Set<Book> books = new HashSet<Book>();
 }
