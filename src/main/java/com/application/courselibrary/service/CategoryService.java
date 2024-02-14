@@ -21,4 +21,14 @@ public class CategoryService {
         -> new RuntimeException("Category not found"));
         return  category;
     }
+
+    public void createCategory(Category category){
+        categoryRepository.save(category);
+    }
+
+    public void deleteCategory(Long id){
+        Category category = categoryRepository.findById(id).orElseThrow(()
+        -> new RuntimeException("Category not found"));
+        categoryRepository.deleteById(category.getId());
+    }
 }
