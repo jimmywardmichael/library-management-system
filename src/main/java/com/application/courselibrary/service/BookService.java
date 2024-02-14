@@ -30,5 +30,4 @@ public class BookService {
                 -> new RuntimeException("Book not found"));
             bookRepository.deleteById(book.getId());
     }
-
 }
