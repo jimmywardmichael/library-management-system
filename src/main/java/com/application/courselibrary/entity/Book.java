@@ -45,6 +45,13 @@ public class Book {
             inverseJoinColumns = {@JoinColumn(name = "author_id")})
     private Set<Publisher> publishers = new HashSet<Publisher>();
 
+
+    public Book(String isbn, String name, String description) {
+        this.isbn = isbn;
+        this.name = name;
+        this.description = description;
+    }
+
     public void removePublisher(Publisher publisher){
         this.publishers.remove(publisher);
         publisher.getBooks().remove(publisher);

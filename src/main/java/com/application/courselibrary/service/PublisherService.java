@@ -32,7 +32,8 @@ public class PublisherService {
     }
     public void deletePublisher(Long id){
         Publisher publisher = publisherRepository.findById(id).orElseThrow(()
-        -> new RuntimeException("Publisher not found"));
+                -> new RuntimeException("Publisher not found"));
+                publisherRepository.deleteById(publisher.getId());
     }
 }
 
