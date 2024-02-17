@@ -25,6 +25,11 @@ public class PublisherService {
     public void createPublisher(Publisher publisher){
         publisherRepository.save(publisher);
     }
+
+    public void updatePublisher(Publisher publisher) {
+        publisherRepository.save(publisher);
+
+    }
     public void deletePublisher(Long id){
         Publisher publisher = publisherRepository.findById(id).orElseThrow(()
         -> new RuntimeException("Publisher not found"));
