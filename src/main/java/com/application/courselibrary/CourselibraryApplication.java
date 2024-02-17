@@ -8,6 +8,7 @@ import com.application.courselibrary.service.BookService;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.context.annotation.Bean;
 
 @SpringBootApplication
 public class CourselibraryApplication {
@@ -16,7 +17,7 @@ public class CourselibraryApplication {
 		SpringApplication.run(CourselibraryApplication.class, args);
 	}
 
-
+@Bean
 		public CommandLineRunner initialCreate(BookService bookService){
 		return(args) -> {
 			Book book1 = new Book("ABC", "Book name", "My first book");
@@ -38,8 +39,8 @@ public class CourselibraryApplication {
 			bookService.createBook(book2);
 
 			Book book3 = new Book("ABC2", "Book name", "My third book");
-			Author author3 = new Author("Test name2", "Test description");
-			Category category3 = new Category("Business books");
+			Author author3 = new Author("Test name3", "Test description");
+			Category category3 = new Category("Fiction books");
 			Publisher publisher3 = new Publisher("Third Publisher");
 			book3.addAuthor(author3);
 			book3.addCategory(category3);
